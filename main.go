@@ -44,7 +44,6 @@ func HappyNumber(n int) bool {
 		fmt.Printf("This is sad Number :(  \n")
 		return false
 	}
-	//	fmt.Println("sum answers: ", answers)
 
 	collector = append(collector, sum)
 	HappyNumber(num)
@@ -77,18 +76,14 @@ func Parse(n int) []int {
 		}
 		newNums = append(newNums, number)
 	}
-	//	fmt.Println("This is the new array", newNums)
 	return newNums
 }
 
-//pseudo cod
+//pseudo code
 
 /*
   check if it is 1 or ends in 1 and return true it's happy
   parse input to find length, put in list, square list, and then sum <-- own function
   check if number returned from function is equal to 1, if not put new number into function
   store answer in list to check if the number is repeated to see if you are in a loop.
-
-
-
 */
