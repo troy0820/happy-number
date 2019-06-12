@@ -46,9 +46,7 @@ func HappyNumber(n int) bool {
 	}
 
 	collector = append(collector, sum)
-	HappyNumber(num)
-
-	return true
+	return HappyNumber(num)
 }
 func checkInSlice(sl []int, num int) bool {
 	for _, v := range sl {
