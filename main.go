@@ -6,9 +6,13 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/fatih/color"
 )
 
 var collector []int
+var red = color.New(color.FgRed).SprintFunc()
+var green = color.New(color.FgGreen).SprintFunc()
 
 func main() {
 	reader := bufio.NewScanner(os.Stdin)
@@ -32,7 +36,7 @@ func HappyNumber(n int) bool {
 	answerSum := Parse(sum)
 	length := len(answerSum)
 	if answerSum[length-1] == 1 {
-		fmt.Printf("This is a Happy Number :D \n")
+		fmt.Printf(green("This is a Happy Number :D \n"))
 		return true
 	}
 	num, err := strconv.Atoi(ParseToString(answers))
@@ -41,7 +45,7 @@ func HappyNumber(n int) bool {
 		return false
 	}
 	if checkInSlice(collector, sum) == true {
-		fmt.Printf("This is sad Number :(  \n")
+		fmt.Printf(red("This is sad Number :(  \n"))
 		return false
 	}
 
