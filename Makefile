@@ -3,13 +3,13 @@ SHELL:=/bin/bash
 
 all: happy
 
-
-happy: clean
+happy: clean test
 	go build -o happy
-
+test:
+	go test ./... -v
 clean:
 	rm -rf happy
 
 
 
-.PHONY: happy clean
+.PHONY: happy test clean

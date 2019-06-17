@@ -18,11 +18,11 @@ func main() {
 	reader := bufio.NewScanner(os.Stdin)
 	fmt.Println("Enter number to see if it's Happy: ")
 	reader.Scan()
-	text := reader.Text()
-	text = strings.Replace(text, " ", "", -1)
-	happy, _ := strconv.Atoi(text)
-	//	var happy int
-	//	fmt.Sscanf(reader.Text(), "%d", &happy)
+	//	text := reader.Text()
+	//	text = strings.Replace(text, " ", "", -1)
+	//	happy, _ := strconv.Atoi(text)
+	var happy int
+	fmt.Sscanf(reader.Text(), "%d", &happy)
 	fmt.Printf("Checking to see if %v is Happy \n", happy)
 	HappyNumber(happy)
 }
@@ -31,7 +31,7 @@ func main() {
 func HappyNumber(n int) bool {
 	sl := Parse(n)
 	if sl[len(sl)-1] == 1 {
-		fmt.Printf(green("This is a Happy Number :D \n"))
+		fmt.Println(green("This is a Happy Number :D"))
 		return true
 	}
 	var sum int
@@ -43,7 +43,7 @@ func HappyNumber(n int) bool {
 	answerSum := Parse(sum)
 	length := len(answerSum)
 	if answerSum[length-1] == 1 {
-		fmt.Printf(green("This is a Happy Number :D \n"))
+		fmt.Println(green("This is a Happy Number :D"))
 		return true
 	}
 	num, err := strconv.Atoi(ParseToString(answers))
@@ -51,8 +51,8 @@ func HappyNumber(n int) bool {
 		fmt.Printf("This is an error parsing to string %v \n", err)
 		return false
 	}
-	if checkInSlice(collector, sum) == true {
-		fmt.Printf(red("This is sad Number :(  \n"))
+	if checkInSlice(collector, sum) {
+		fmt.Println(red("This is sad Number :("))
 		return false
 	}
 
