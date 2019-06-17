@@ -21,12 +21,19 @@ func main() {
 	text := reader.Text()
 	text = strings.Replace(text, " ", "", -1)
 	happy, _ := strconv.Atoi(text)
+	//	var happy int
+	//	fmt.Sscanf(reader.Text(), "%d", &happy)
 	fmt.Printf("Checking to see if %v is Happy \n", happy)
 	HappyNumber(happy)
 }
 
+//HappyNumber checks to see if a number is Happy or sad
 func HappyNumber(n int) bool {
 	sl := Parse(n)
+	if sl[len(sl)-1] == 1 {
+		fmt.Printf(green("This is a Happy Number :D \n"))
+		return true
+	}
 	var sum int
 	var answers []int
 	for _, v := range sl {
@@ -60,6 +67,9 @@ func checkInSlice(sl []int, num int) bool {
 	}
 	return false
 }
+
+//ParseToString takes a slice of ints and returns a string
+//ex. [1,2,3] -> "123"
 func ParseToString(sl []int) string {
 	var thing strings.Builder
 	for _, v := range sl {
@@ -68,6 +78,9 @@ func ParseToString(sl []int) string {
 	}
 	return thing.String()
 }
+
+//Parse takes an int and makes it a slice of ints of the same number
+//ex 123 -> [1,2,3]
 func Parse(n int) []int {
 	num := strconv.Itoa(n)
 	var newNums []int
