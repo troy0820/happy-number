@@ -2,9 +2,30 @@ package main
 
 import (
 	"testing"
-
-	"github.com/stretchr/testify/assert"
 )
+
+func TestProcessNumber(t *testing.T) {
+	tests := map[string]struct {
+		input int
+		want  int
+	}{
+		"Thirteen 13:":          {13, 10},
+		"Forty-Four 44":         {44, 32},
+		"One 1":                 {1, 1},
+		"Zero 0":                {0, 0},
+		"One Thousand One 1001": {1001, 2},
+	}
+	for name, test := range tests {
+		got := processNumber(test.input)
+		test := test
+		t.Run(name, func(t *testing.T) {
+			t.Parallel()
+			if test.want != got {
+				t.Fatalf("This is not equal.  Wanted %d got %d", test.want, got)
+			}
+		})
+	}
+}
 
 func TestHappyNumber(t *testing.T) {
 	tests := map[string]struct {
@@ -18,30 +39,13 @@ func TestHappyNumber(t *testing.T) {
 		"Long Number -5432-":    {5423, true},
 	}
 	for name, test := range tests {
+		test := test
 		got := HappyNumber(test.input)
 		t.Run(name, func(t *testing.T) {
+			t.Parallel()
 			if test.answer != got {
 				t.Fatalf("expected %#v, got %#v", test.answer, got)
 			}
 		})
-	}
-}
-
-func TestParse(t *testing.T) {
-	tests := map[string]struct {
-		input  int
-		answer []int
-	}{
-		"Standard Number 24": {24, []int{2, 4}},
-		"Double Number 11":   {11, []int{1, 1}},
-		"Single number 1":    {1, []int{1}},
-	}
-
-	for name, test := range tests {
-		got := Parse(test.input)
-		t.Run(name, func(t *testing.T) {
-			assert.Equal(t, test.answer, got, "Results are not equal")
-		})
-
 	}
 }
