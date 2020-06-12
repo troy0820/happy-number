@@ -1,4 +1,4 @@
-FROM golang:1.11.4-alpine
+FROM golang:1.14.4-alpine
 
 LABEL "com.github.action.name"="Go-workflow"
 LABEL "com.github.actions.description"="Go test"
