@@ -4,7 +4,7 @@ SHELL:=/bin/bash
 all: happy
 
 happy: clean test
-	go build -o happy
+	go build -o happy ./cmd/happy
 test:
 	go test ./... -v
 clean:
