@@ -1,4 +1,4 @@
-package main
+package happy
 
 import (
 	"bufio"
@@ -6,13 +6,7 @@ import (
 	"os"
 )
 
-func main() {
-	if err := run(); err != nil {
-		fmt.Println(err)
-	}
-}
-
-func run() error {
+func Run() error {
 
 	reader := bufio.NewScanner(os.Stdin)
 	fmt.Println("Enter number to see if it's Happy: ")
