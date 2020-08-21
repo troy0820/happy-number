@@ -1,0 +1,10 @@
+name: Go-build
+on:
+  push:
+jobs:
+  go-build:
+    name: Go build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: ./action/build
