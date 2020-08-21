@@ -3,3 +3,4 @@
 
 go test ./... -v
 
+go build -o happy ./cmd/happy

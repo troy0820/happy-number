@@ -2,7 +2,7 @@ name: Go-build
 on:
   push:
 jobs:
-  go-build:
+  go:
     name: Go build
     runs-on: ubuntu-latest
     steps:
