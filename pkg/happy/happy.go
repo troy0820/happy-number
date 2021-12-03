@@ -14,7 +14,7 @@ func Run() error {
 	var happy int
 	fmt.Sscanf(reader.Text(), "%d", &happy)
 	fmt.Printf("Checking to see if %v is Happy \n", happy)
-	if num := HappyNumber(happy); num == true {
+	if num := HappyNumber(happy); num {
 		fmt.Println("This is a Happy Number")
 		return nil
 	}
@@ -25,16 +25,14 @@ func Run() error {
 func HappyNumber(n int) bool {
 	m := map[int]bool{}
 	for {
-		if n%10 == 1 {
+		if n == 1 {
 			return true
 		}
-
 		n = processNumber(n)
 
 		if m[n] == true || n == 0 {
 			return false
 		}
-
 		m[n] = true
 	}
 }

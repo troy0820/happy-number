@@ -35,8 +35,8 @@ func TestHappyNumber(t *testing.T) {
 		"Happy Number -7-":      {7, true},
 		"Not Happy Number -4-":  {4, false},
 		"Base Case -1-":         {1, true},
-		"Before Algorithm -11-": {11, true},
-		"Long Number -5432-":    {5423, true},
+		"Before Algorithm -11-": {11, false},
+		"Long Number -5432-":    {5423, false},
 	}
 	for name, test := range tests {
 		test := test

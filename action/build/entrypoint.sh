@@ -1,3 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 go build -o happy ./cmd/happy
+
