@@ -1,8 +1,8 @@
 mod happy;
 
-fn main() {
+fn main() -> anyhow::Result<()> {
     let happy_number = String::new();
-    let num: i32 = happy::get_input_for_happy_number(happy_number);
+    let num: i32 = happy::get_input_for_happy_number(happy_number)?;
     println!(
         "Happy number with hash set {} is : {:?}",
         num,
@@ -13,4 +13,5 @@ fn main() {
         num,
         happy::happy_number_hash_map(num)
     );
+    Ok(())
 }

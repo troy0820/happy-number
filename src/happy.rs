@@ -2,11 +2,11 @@ use std::collections::HashMap;
 use std::collections::HashSet;
 use std::io;
 
-pub fn get_input_for_happy_number(mut s: String) -> i32 {
+pub fn get_input_for_happy_number(mut s: String) -> anyhow::Result<i32> {
     println!("Pick a number that is happy:");
-    io::stdin().read_line(&mut s).expect("failed to read line");
-    let num = s.trim().parse::<i32>().expect("failed to parse number");
-    return num;
+    io::stdin().read_line(&mut s)?;
+    let num = s.trim().parse::<i32>()?;
+    Ok(num)
 }
 
 fn process_number(mut x: i32) -> i32 {
