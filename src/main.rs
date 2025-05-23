@@ -13,5 +13,6 @@ fn main() -> anyhow::Result<()> {
         num,
         happy::happy_number_hash_map(num)
     );
+
     Ok(())
 }
